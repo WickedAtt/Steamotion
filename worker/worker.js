@@ -1,7 +1,3 @@
-// Steamotion proxy: a Cloudflare Worker that forwards a fixed set of requests
-// to Steam, SteamCharts and IsThereAnyDeal and adds CORS headers.
-// Secret: ITAD_KEY (free key from https://isthereanydeal.com/apps/my/)
-
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, OPTIONS',
@@ -21,7 +17,6 @@ async function getJSON(url, init) {
   return r.json();
 }
 
-// Pass-through for the Steam store API (keeps the query string).
 async function steam(path, search) {
   const r = await fetch(`https://store.steampowered.com/api/${path}${search}`, { headers: UA });
   return new Response(r.body, {
@@ -30,7 +25,6 @@ async function steam(path, search) {
   });
 }
 
-// Players: current count from the Steam Web API, stats + full history from SteamCharts.
 async function players(appid) {
   const [now, page, series] = await Promise.allSettled([
     getJSON(`https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=${appid}`),
@@ -51,7 +45,6 @@ async function players(appid) {
   return json(out, 1800);
 }
 
-// Price history for Steam (shop 61) from IsThereAnyDeal, all time, for one country.
 const DEF_ITAD_KEY = '005b4a2dbf0ec65a6ad887723d6d0c253045729f';
 async function prices(appid, cc, env) {
   const key = (env && env.ITAD_KEY) || DEF_ITAD_KEY;

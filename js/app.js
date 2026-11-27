@@ -1,4 +1,3 @@
-/* Steamotion: Steam data, pages, library and event handlers */
 const vSet=()=>`<h2>Налаштування</h2><div class="panel"><b>Мова застосунку</b><div class="form">${[['en','English'],['uk','Українська'],['nb','Norsk bokmål']].map(([c,n])=>`<button class="btn ${c===LANG?'':'s'}" data-a="lang" data-c="${c}">${n}</button>`).join('')}</div></div><div class="panel"><b>Адреса Steam-проксі (Cloudflare Worker)</b><small style="display:block;margin:4px 0">Вбудований проксі працює за замовчуванням. Залиште поле порожнім, щоб повернути його.</small><div class="form"><input id="api" placeholder="https://….workers.dev" value="${E(S('se_api',''))}"><button class="btn" data-a="api">Зберегти</button></div></div>`;
 let CH=null;
 const DEF_API='',IK='005b4a2dbf0ec65a6ad887723d6d0c253045729f';

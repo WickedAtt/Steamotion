@@ -1,5 +1,3 @@
-/* Steamotion: player and price statistics, charts with slider */
-/* ---- Real statistics: players (SteamCharts + Steam Web API) and price history (IsThereAnyDeal) ---- */
 let PL={},PH={};const CHS={},DAY=864e5;
 const nf=(v,c)=>{try{return new Intl.NumberFormat(LOC[LANG],c?{notation:'compact',maximumFractionDigits:1}:{maximumFractionDigits:0}).format(v)}catch(e){return String(Math.round(v))}};
 const fd=(t,o)=>new Date(t).toLocaleString(LOC[LANG],o);
