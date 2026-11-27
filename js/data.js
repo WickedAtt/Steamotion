@@ -96,6 +96,8 @@ const D=`Крамниця|Store|Butikk
 Додати в мою бібліотеку, ціна в|Add to my library, price in|Legg til i biblioteket mitt, pris i
 У бібліотеку|Add to library|Legg i bibliotek
 Системні вимоги|System requirements|Systemkrav
+Мінімальні:|Minimum:|Minimum:
+Рекомендовані:|Recommended:|Anbefalt:
 Ціна покупки|Purchase price|Kjøpspris
 Трейлер|Trailer|Trailer
 Скріншот |Screenshot |Skjermbilde 
